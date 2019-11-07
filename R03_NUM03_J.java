@@ -18,7 +18,7 @@ public class R03_NUM03_J {
    *
    */
 
-  public static int getInteger(DataInputStream is) throws IOException {
+  public static long getInteger(DataInputStream is) throws IOException {
     return is.readInt() & 0xFFFFFFFFL;
   }
 
@@ -43,7 +43,7 @@ public class R03_NUM03_J {
 
       while(datainpstream.available() > 0) {
 
-        int c = getInteger(datainpstream);
+        long c = getInteger(datainpstream);
         System.out.print(" " + c);
       }
     }
