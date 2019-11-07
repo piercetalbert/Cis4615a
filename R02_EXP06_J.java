@@ -12,8 +12,20 @@ public class R02_EXP06_J {
 
   private static ArrayList<String> names;
 
+  /*
+   * Rule 02. Expressions (EXP)
+   * Corrected code per:
+   * https://wiki.sei.cmu.edu/confluence/display/java/EXP06-J.+Expressions+used+in+assertions+must+not+produce+side+effects
+   *
+   */
+
   static void process(int index) {
-    assert names.remove(null); // Side effect
+    names = new ArrayList<String>();
+    names.add(null);
+    System.out.println(names);
+    boolean nullsRemoved = names.remove(null);
+    System.out.println(names);
+    assert nullsRemoved; // No side effect
     // ...
   }
 
