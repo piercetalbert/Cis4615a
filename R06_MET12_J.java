@@ -16,7 +16,14 @@ public class R06_MET12_J {
   }
 }
 
+/*
+* Rule 06. Methods (MET)
+* Corrected code per:
+* https://wiki.sei.cmu.edu/confluence/display/java/MET12-J.+Do+not+use+finalizers
+*
+*/
+
 class MyFrame extends JFrame {
-  private byte[] buffer = new byte[16 * 1024 * 1024];
-  // Persists for at least two GC cycles
+  private JFrame frame;
+  private byte[] buffer = new byte[16 * 1024 * 1024]; // Now decoupled
 }
