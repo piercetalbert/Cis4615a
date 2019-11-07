@@ -11,8 +11,15 @@ import java.io.*;
 
 public class R03_NUM03_J {
 
+  /*
+   * Rule 03. Numeric Types and Operations (NUM)
+   * Corrected code per:
+   * https://wiki.sei.cmu.edu/confluence/display/java/NUM03-J.+Use+integer+types+that+can+fully+represent+the+possible+range+of++unsigned+data
+   *
+   */
+
   public static int getInteger(DataInputStream is) throws IOException {
-    return is.readInt();
+    return is.readInt() & 0xFFFFFFFFL;
   }
 
   public static void main(String[] args) {
